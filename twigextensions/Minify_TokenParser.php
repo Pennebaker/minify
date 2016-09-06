@@ -1,5 +1,7 @@
 <?php
-namespace Craft;
+namespace craft\plugins\minify\twigextensions;
+
+use craft\plugins\minify\twigextensions\Minify_Node;
 
 /**
  * Class Minify_TokenParser
