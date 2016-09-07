@@ -7,21 +7,21 @@ use craft\app\base\Component;
 class MinifyService extends Component
 {
 
-    private static $shouldMinify = true;
+    private $shouldMinify = true;
 
     public function init()
     {
-        $disableTemplateMinifying = craft()->config->get('disableTemplateMinifying');
-        $disableDevmodeMinifying = craft()->config->get('disableDevmodeMinifying');
+        $disableTemplateMinifying = Craft::$app->config->get('disableTemplateMinifying');
+        $disableDevmodeMinifying = Craft::$app->config->get('disableDevmodeMinifying');
 
         if ($disableTemplateMinifying)
         {
-            self::$shouldMinify = false;
+            $this->shouldMinify = false;
         }
 
-        if (craft()->config->get('devMode') && $disableDevmodeMinifying)
+        if (Craft::$app->config->get('devMode') && $disableDevmodeMinifying)
         {
-            self::$shouldMinify = false;
+            $this->shouldMinify = false;
         }
     }
 
@@ -29,9 +29,9 @@ class MinifyService extends Component
     Minify all the things
 -------------------------------------------------------------------------------- */
 
-    public static function minify($htmlText="")
+    public function minify($htmlText="")
     {
-        if (self::$shouldMinify)
+        if ($this->shouldMinify)
         {
             $options = array(
                 'cssMinifier' => '\Minify_CSSmin::minify',
@@ -46,9 +46,9 @@ class MinifyService extends Component
     Minify the passed in HTML
 -------------------------------------------------------------------------------- */
 
-    public static function htmlMin($htmlText="")
+    public function htmlMin($htmlText="")
     {
-        if (self::$shouldMinify)
+        if ($this->shouldMinify)
         {
             $htmlText = \Minify_HTML::minify($htmlText);
         }
@@ -59,9 +59,9 @@ class MinifyService extends Component
     Minify the passed in CSS
 -------------------------------------------------------------------------------- */
 
-    public static function cssMin($cssText="")
+    public function cssMin($cssText="")
     {
-        if (self::$shouldMinify)
+        if ($this->shouldMinify)
         {
             $cssText = \Minify_CSSmin::minify($cssText);
         }
@@ -72,9 +72,9 @@ class MinifyService extends Component
     Minify the passed in JS
 -------------------------------------------------------------------------------- */
 
-    public static function jsMin($jsText="")
+    public function jsMin($jsText="")
     {
-        if (self::$shouldMinify)
+        if ($this->shouldMinify)
         {
             $jsText = \JSMin\JSMin::minify($jsText);
         }

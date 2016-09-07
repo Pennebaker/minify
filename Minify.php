@@ -6,7 +6,7 @@ use craft\plugins\minify\twigextensions\MinifyTwigExtension;
 /**
  * Class MinifyPlugin
  */
-class Plugin extends \craft\app\base\Plugin
+class Minify extends \craft\app\base\Plugin
 {
 
     // Public Methods

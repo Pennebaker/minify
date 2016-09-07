@@ -35,22 +35,22 @@ class Minify_Node extends \Twig_Node
         if ($html)
         {
             $compiler
-                ->write("echo craft\plugins\minify\services\MinifyService::htmlMin(\$_compiledBody);\n");
+                ->write("echo craft\plugins\minify\Minify::getInstance()->minify->htmlMin(\$_compiledBody);\n");
         }
         elseif ($css)
         {
             $compiler
-                ->write("echo craft\plugins\minify\services\MinifyService::cssMin(\$_compiledBody);\n");
+                ->write("echo craft\plugins\minify\Minify::getInstance()->minify->cssMin(\$_compiledBody);\n");
         }
         elseif ($js)
         {
             $compiler
-                ->write("echo craft\plugins\minify\services\MinifyService::jsMin(\$_compiledBody);\n");
+                ->write("echo craft\plugins\minify\Minify::getInstance()->minify->jsMin(\$_compiledBody);\n");
         }
         else
         {
             $compiler
-                ->write("echo craft\plugins\minify\services\MinifyService::minify(\$_compiledBody);\n");
+                ->write("echo craft\plugins\minify\Minify::getInstance()->minify->minify(\$_compiledBody);\n");
         }
 
     }
