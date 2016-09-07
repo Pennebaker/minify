@@ -20,11 +20,11 @@ class Minify_TokenParser extends \Twig_TokenParser
     }
 
     /**
-     * Parses {% cache %}...{% endcache %} tags.
+     * Parses {% minify %}...{% endminify %} tags.
      *
      * @param \Twig_Token $token
      *
-     * @return Cache_Node
+     * @return Minify_Node
      */
     public function parse(\Twig_Token $token)
     {
@@ -60,7 +60,7 @@ class Minify_TokenParser extends \Twig_TokenParser
         }
 
         $stream->expect(\Twig_Token::BLOCK_END_TYPE);
-        $nodes['body'] = $this->parser->subparse(array($this, 'decideCacheEnd'), true);
+        $nodes['body'] = $this->parser->subparse(array($this, 'decideMinifyEnd'), true);
         $stream->expect(\Twig_Token::BLOCK_END_TYPE);
 
         return new Minify_Node($nodes, $attributes, $lineno, $this->getTag());
@@ -71,7 +71,7 @@ class Minify_TokenParser extends \Twig_TokenParser
      *
      * @return bool
      */
-    public function decideCacheEnd(\Twig_Token $token)
+    public function decideMinifyEnd(\Twig_Token $token)
     {
         return $token->test('endminify');
     }
