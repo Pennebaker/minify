@@ -4,7 +4,7 @@
         "downloadUrl": "https://github.com/nystudio107/minify/archive/craft3.zip",
         "date": "2016-09-09T11:00:00-05:00",
         "notes": [
-            "[Improved] Ported the plugin to Craft3",
+            "[Added] Ported the plugin to Craft 3",
             "[Improved] Updated the README.md"
         ]
     },

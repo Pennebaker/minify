@@ -134,6 +134,11 @@ If you can think of another safe & efficient way to limit lines in these two too
 
 ## Changelog
 
+### 1.2.0 -- 2016.09.09
+
+* [Added] Ported the plugin to Craft 3
+* [Improved] Updated the README.md
+
 ### 1.1.1 -- 2016.08.04
 
 * [Improved] Removing dev requirement from composer.json
