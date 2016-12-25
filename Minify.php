@@ -1,12 +1,13 @@
 <?php
-namespace craft\plugins\minify;
+namespace nystudio107\minify;
 
-use craft\plugins\minify\twigextensions\MinifyTwigExtension;
+use Craft;
+use nystudio107\minify\twigextensions\MinifyTwigExtension;
 
 /**
  * Class Minify
  */
-class Minify extends \craft\app\base\Plugin
+class Minify extends \craft\base\Plugin
 {
 
     /**
@@ -34,14 +35,10 @@ class Minify extends \craft\app\base\Plugin
     public function init()
     {
         parent::init();
-        require_once __DIR__ . '/vendor/autoload.php';
-    }
 
-    /**
-     * Add in our Twig extensions
-     */
-    public function addTwigExtension()
-    {
-        return new MinifyTwigExtension();
+        /**
+         * Add in our Twig extensions
+         */
+        Craft::$app->view->twig->addExtension(new MinifyTwigExtension());
     }
 }

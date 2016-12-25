@@ -1,8 +1,8 @@
 <?php
-namespace craft\plugins\minify\services;
+namespace nystudio107\minify\services;
 
 use Craft;
-use craft\app\base\Component;
+use craft\base\Component;
 
 class MinifyService extends Component
 {

@@ -1,7 +1,7 @@
 <?php
-namespace craft\plugins\minify\twigextensions;
+namespace nystudio107\minify\twigextensions;
 
-use craft\plugins\minify\Minify;
+use nystudio107\minify\Minify;
 
 /**
  * Class Minify_Node
