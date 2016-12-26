@@ -35,10 +35,23 @@ class Minify extends \craft\base\Plugin
     public function init()
     {
         parent::init();
+        $this->name = $this->getName();
 
         /**
          * Add in our Twig extensions
          */
         Craft::$app->view->twig->addExtension(new MinifyTwigExtension());
     }
+
+    /**
+     * Returns the user-facing name of the plugin, which can override the name in
+     * plugin.json
+     *
+     * @return mixed
+     */
+    public function getName()
+    {
+         return Craft::t('minify', 'Minify');
+    }
+
 }
