@@ -1,11 +1,23 @@
 <?php
+/**
+ * Minify plugin for Craft CMS 3.x
+ *
+ * @link      https://nystudio107.com/
+ * @copyright Copyright (c) 2017 nystudio107
+ * @license   MIT License https://opensource.org/licenses/MIT
+ */
+
 namespace nystudio107\minify;
 
 use Craft;
 use nystudio107\minify\twigextensions\MinifyTwigExtension;
 
 /**
- * Class Minify
+ * Minify plugin base class
+ *
+ * @author    nystudio107
+ * @package   Minify
+ * @since     1.2.0
  */
 class Minify extends \craft\base\Plugin
 {
