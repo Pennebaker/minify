@@ -23,7 +23,7 @@
     },
     "autoload": {
         "psr-4": {
-          "nystudio107\\minify\\": ""
+          "nystudio107\\minify\\": "src/"
         }
     },
     "extra": {
