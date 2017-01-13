@@ -29,29 +29,22 @@ class Minify extends \craft\base\Plugin
     public static $plugin;
 
     /**
-     * Set our $plugin static property to this class so that it can be accessed via Minify::$plugin
-     * @param array $config [description]
-     */
-    public function __construct($id, $parent = null, $config = [])
-    {
-        static::$plugin = $this;
-        static::setInstance($this);
-
-        parent::__construct($id, $parent, $config);
-    }
-
-    /**
-     * Initialize our plugin class; autoload any Composer-based vendor modules
-     * @return [type] [description]
+     * Set our $plugin static property to this class so that it can be accessed via
+     * Minify::$plugin
+     *
+     * Called after the plugin class is instantiated; do any one-time initialization
+     * here such as hooks and events.
+     *
+     * If you have a '/vendor/autoload.php' file, it will be loaded for you automatically;
+     * you do not need to load it in your init() method.
      */
     public function init()
     {
         parent::init();
+        self::$plugin = $this;
         $this->name = $this->getName();
 
-        /**
-         * Add in our Twig extensions
-         */
+        // Add in our Twig extensions
         Craft::$app->view->twig->addExtension(new MinifyTwigExtension());
     }
 
